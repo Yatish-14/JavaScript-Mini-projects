@@ -20,9 +20,3 @@ function generateQR() {
 }
 
 
-// In JavaScript, .onload is an event handler property used to execute code after a resource has fully loaded.
-// Its main purpose is to ensure that certain scripts run only when the required content (image, page, script, etc.) is completely loaded.
-
-
-// encodeURIComponent() changes special characters in a piece of text so it’s safe to put inside a URL.
-// It turns things like spaces, &, =, ?, / into special codes (like %20 for space) so the browser doesn’t get confused.
