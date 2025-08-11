@@ -13,8 +13,8 @@ body {
   width: 400px;
   padding: 25px 35px;
   position: absolute;
-  top: 50%; /*Push the box down until its top edge reaches the middle of the parent. */
-  left: 50%; /* Push the box right until its left edge reaches the middle of the parent. */
+  top: 50%; 
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 10px;
@@ -93,21 +93,5 @@ body {
   }
 }
 
-/* 
-0 → Horizontal offset (x-axis)
-How far the shadow moves left or right.
-0 means the shadow is centered horizontally under the element.
 
-10px → Vertical offset (y-axis)
-How far the shadow moves up or down.
-10px means it’s moved 10px downward.
 
-10px → Blur radius
-How soft or spread out the shadow edges are.
-Higher values make the shadow more blurry.
-
-rgba(0,0,0,0.1) → Shadow color
-RGB(0,0,0) means black.
-
-0.1 is the transparency (10% visible).
-*/
