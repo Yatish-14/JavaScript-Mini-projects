@@ -1,0 +1,49 @@
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    transition: background 0.3s ease;
+}
+
+.color-picker {
+    text-align: center;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    width: 250px;
+}
+
+.color-picker h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+input[type="color"] {
+    border: none;
+    width: 80px;
+    height: 50px;
+    cursor: pointer;
+    background: none;
+}
+
+#colorCodeText {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+}
+
+.selected-color {
+    margin: 15px auto 0;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
