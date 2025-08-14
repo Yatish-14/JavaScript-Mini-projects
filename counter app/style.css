@@ -1,27 +1,92 @@
+/* ------------------------------
+   0) Base reset
+------------------------------ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Let the browser style built-in UI for both themes correctly */
+:root { color-scheme: light dark; }
+
+/* ------------------------------
+   1) THEME VARIABLES
+   Light (default) on :root
+   Dark on :root.dark
+------------------------------ */
+:root {
+  /* Background gradient */
+  --bg-1: #8e44ad;
+  --bg-2: #3498db;
+
+  /* Page text color (outside the card) */
+  --page-text: #ffffff;
+
+  /* Card colors */
+  --card-bg: #ffffff;
+  --card-text: #333333;
+  --shadow: rgba(0, 0, 0, 0.2);
+
+  /* Buttons (kept from your original palette) */
+  --btn-inc: #27ae60;
+  --btn-inc-hover: #2ecc71;
+
+  --btn-dec: #e74c3c;
+  --btn-dec-hover: #c0392b;
+
+  --btn-reset: #f39c12;
+  --btn-reset-hover: #e67e22;
+
+  /* Misc */
+  --toggle-bg: transparent;
+  --toggle-border: rgba(0, 0, 0, 0.15);
+  --toggle-text: #333333;
+  --toggle-hover: rgba(0, 0, 0, 0.06);
+}
+
+:root.dark {
+  --bg-1: #0f172a;            /* deep slate */
+  --bg-2: #1e293b;            /* slightly lighter slate */
+  --page-text: #e5e7eb;
+
+  --card-bg: #0b1220;         /* dark card */
+  --card-text: #e5e7eb;       /* light text on dark */
+  --shadow: rgba(0, 0, 0, 0.5);
+
+  --toggle-bg: transparent;
+  --toggle-border: rgba(255, 255, 255, 0.2);
+  --toggle-text: #e5e7eb;
+  --toggle-hover: rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------
+   2) Layout & page background
+------------------------------ */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #8e44ad, #3498db);
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #fff;
+  color: var(--page-text);
+  transition: background 0.35s ease, color 0.2s ease;
 }
 
+/* ------------------------------
+   3) Card (counter container)
+------------------------------ */
 .counter-container {
+  position: relative; /* so the toggle can sit in the corner */
   text-align: center;
-  background: #fff;
-  color: #333;
+  background: var(--card-bg);
+  color: var(--card-text);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--shadow);
   width: 300px;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 h1 {
@@ -33,34 +98,54 @@ h1 {
   margin: 20px 0;
 }
 
+/* ------------------------------
+   4) Buttons
+------------------------------ */
 .controls button {
   padding: 10px 20px;
   margin: 5px;
   font-size: 1rem;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease, transform 0.05s ease;
 }
 
-#incrementBtn {
-  background: #27ae60;
-}
-#incrementBtn:hover {
-  background: #2ecc71;
+.controls button:active {
+  transform: translateY(1px);
 }
 
-#decrementBtn {
-  background: #e74c3c;
-}
-#decrementBtn:hover {
-  background: #c0392b;
-}
+#incrementBtn { background: var(--btn-inc); }
+#incrementBtn:hover { background: var(--btn-inc-hover); }
 
-#resetBtn {
-  background: #f39c12;
+#decrementBtn { background: var(--btn-dec); }
+#decrementBtn:hover { background: var(--btn-dec-hover); }
+
+#resetBtn { background: var(--btn-reset); }
+#resetBtn:hover { background: var(--btn-reset-hover); }
+
+/* ------------------------------
+   5) Theme toggle button
+------------------------------ */
+#themeToggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--toggle-border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-#resetBtn:hover {
-  background: #e67e22;
+#themeToggle:hover {
+  background: var(--toggle-hover);
+}
+#themeToggle:focus-visible {
+  outline: 2px solid #60a5fa; /* focus ring for accessibility */
+  outline-offset: 2px;
 }
