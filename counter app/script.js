@@ -1,4 +1,3 @@
-// Counter code (yours, unchanged)
 const counter = document.querySelector('#counter');
 const incrementBtn = document.querySelector('#incrementBtn');
 const decrementBtn = document.querySelector('#decrementBtn');
@@ -25,9 +24,8 @@ resetBtn.addEventListener('click', () => {
   updateCounter();
 });
 
-// -------------------------------------------
 // THEME TOGGLE LOGIC
-// -------------------------------------------
+
 const root = document.documentElement; // <html>
 const themeToggle = document.getElementById('themeToggle');
 
@@ -51,11 +49,4 @@ themeToggle.addEventListener('click', () => {
   setTheme(next);
 });
 
-// 3) (Optional) If you want to auto-switch when system theme changes *and*
-//    the user hasn't picked a theme manually, comment out the localStorage
-//    set above and use the listener below:
-//
-// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-//   const userHasChoice = localStorage.getItem('theme') !== null;
-//   if (!userHasChoice) setTheme(e.matches ? 'dark' : 'light');
-// });
+
